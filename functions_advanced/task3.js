@@ -2,7 +2,7 @@ function divide(numerator, denominator) {
     if (denominator === 0) {
         throw new Error("Denominator can't be zero")
     }
-    if (isNaN(numerator) || isNaN(denominator)) {
+    if (typeof numerator !== "number" || typeof denominator !== "number") { //it's better to use typeof since isNaN allows to string like "123" 
         throw new Error("Please specify number for numerator and denominator")
     }
     return numerator / denominator
