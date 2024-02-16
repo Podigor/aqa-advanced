@@ -2,6 +2,8 @@ import Book from "./Book.js";
 
 export default class EBook extends Book {
 
+    #allowedFormats = ['PDF', 'TXT', 'HTML']
+
     constructor(title, author, year, fileFormat) {
         super(title, author, year),  
         this._fileFormat = fileFormat
@@ -16,8 +18,7 @@ export default class EBook extends Book {
     }
 
     set fileFormat(value) {
-        const allowedFormats = ['PDF', 'TXT', 'HTML']
-        if(!allowedFormats.includes(value.toUpperCase())) {
+        if(!this.#allowedFormats.includes(value.toUpperCase())) {
             console.error("Error: File format is not supported. It should be PDF, TXT or HTML")
             return
         }
